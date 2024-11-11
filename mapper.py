@@ -15,16 +15,13 @@ sw = stopwords.words('english')
 
 
 def get_root_domain(url):
-    """Extract the root domain from a URL or fallback to the original string."""
     try:
         parsed_url = urlparse(url)
-        domain = parsed_url.netloc  # Extract the domain (e.g., 'www.bbc.com')
+        domain = parsed_url.netloc 
         if domain:
-            return domain.replace('www.', '')  # Remove 'www.' if present
+            return domain.replace('www.', '')
     except Exception:
-        pass  # If parsing fails, do nothing
-
-    # Fallback to the original source if URL parsing fails
+        pass  
     return url if url else "Unknown"
 
 for line in sys.stdin:
